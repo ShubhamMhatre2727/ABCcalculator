@@ -1,0 +1,28 @@
+.weight_box h1{
+    text-transform: uppercase; 
+    margin-top: 50px;
+}
+
+.btn_box{
+    margin: 50px auto;
+    max-width: 1200px;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    grid-gap: 1rem;
+}
+
+.weight_box a{
+    justify-self: center;
+    padding-block: 24px;
+    padding-inline: 80px;
+
+    font-size: 18px;
+    font-weight: bold;
+    background: #1E90FF;
+    color: #fff;
+    border-radius: 5px;
+    text-align: center;
+    
+    text-decoration: none;
+    text-transform: uppercase;
+}

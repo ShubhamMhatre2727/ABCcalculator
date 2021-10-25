@@ -1,0 +1,14 @@
+<div metal:use-macro="load: layout.pt">
+    <div metal:fill-slot='content'>
+        <link href="${request.static_url('ABCcalculator:static/age.css')}" rel="stylesheet">
+
+        <div class="age_box">
+            <h1 style="margin-top: 10px; margin-bottom: 10px;">Age Calculator</h1>
+            <form method="POST" action="${request.current_route_url()}">
+                <input type='date' name='birthday' value="${view.current_date}">
+                <input type="submit" name='form.dob' value="save">
+            </form>
+            <h1 metal:define-slot='dob'></h1>
+        </div>
+    </div>
+</div>

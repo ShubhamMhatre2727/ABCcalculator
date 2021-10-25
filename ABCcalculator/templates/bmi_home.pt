@@ -1,0 +1,26 @@
+<div metal:use-macro="load: layout.pt">
+    <div metal:fill-slot="content"
+      style="background-color: rgb(28, 231, 221); height: 100%"
+      align="center">
+   
+    <h1 style="margin-top: 5vh; text-align: center; margin-bottom: 1.5%;">BMI Calculator</h1>
+      <form method='POST' action="${request.current_route_url()}">
+        <p>Height (in meter)</p>
+        <input type="text" name="height"  required/>
+        <p>Weight (in kg)</p>
+        <input type="text"  name="weight" required/> <br />
+        <input type="submit" name='form.getBmi' value="Calculate" style="padding: 20px;
+                                                                      padding-inline: 30px;
+                                                                      font-size: 18px;
+                                                                      font-weight: bold;
+                                                                      background: #1E90FF;
+                                                                      color: #fff;
+                                                                      border-radius: 5px;
+                                                                      text-align: center;
+                                                                      margin-top: 10px;
+                                                                      text-decoration: none;
+                                                                      text-transform: uppercase;">
+      </form>
+      <h1 metal:define-slot="bmi"></h1>
+</div>
+</div>

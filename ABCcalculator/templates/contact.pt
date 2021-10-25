@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html metal:use-macro='load: layout.pt'>
+
+<div metal:fill-slot="content">
+
+<link rel="stylesheet"
+          href="${request.static_url('ABCcalculator:static/contact.css') }"/>
+     
+          <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/emailjs-com@3/dist/email.min.js"></script>
+          <script type="text/javascript">
+              (function () {
+                  emailjs.init("user_fzbO8jGXeKGjM3jAzmK3C");
+              })();
+          </script>
+    <section class="contact">
+        <div class="content">
+            <h2>Contact Us</h2>
+            <p>OUR TEAM IS ALWAYS READY TO HEAR FROM YOU. WE MAKE IT A POINT TO RESPOND WITHIN 24 HOURS ON WEEKDAYS AND
+                48 HOURS ON WEEKENDS.</p>
+        </div>
+        <div class="container">
+            <div class="contactInfo">
+                <div class="box">
+                    <div class="icon"><i class="fa fa-map-marker" aria-hidden="true"></i></div>
+                    <div class="text">
+                        <h3>Address</h3>
+                        <p>1234 Pachora Road,<br>Taloja,India,<br>14568</p>
+                    </div>
+                </div>
+                <div class="box">
+                    <div class="icon"><i class="fa fa-phone" aria-hidden="true"></i></div>
+                    <div class="text">
+                        <h3>Phone</h3>
+                        <p>12345678</p>
+                    </div>
+                </div>
+                <div class="box">
+                    <div class="icon"><i class="fa fa-envelope-o" aria-hidden="true"></i></div>
+                    <div class="text">
+                        <h3>Email</h3>
+                        <p>shubhammhatre2727@gmail.com</p>
+                    </div>
+                </div>
+            </div>
+            <div class="contactForm">
+                
+                    <h2>Send Message</h2>
+                    <div class="inputBox">
+                        <input id="name" type="text" required>
+                        <span>Full Name</span>
+                    </div>
+                    <div class="inputBox">
+                        <input id="email" type="email" required>
+                        <span>Email</span>
+                    </div>
+                    <div class="inputBox">
+                        <textarea name="" id="msg" required></textarea>
+                        <span>Type your Message...</span>
+                    </div>
+                    <div class="inputBox">
+                        <input type="submit" onclick="sendMail()" value="Send">
+                    </div>
+               
+            </div>
+        </div>
+    </section>
+    <script>
+        const clear_screen = () => {
+        
+        document.getElementById('name').value = '';
+        document.getElementById('email').value = '';
+        document.getElementById('msg').value = '';
+    }
+        function sendMail(params) {
+            const from = document.getElementById("name").value
+            const to = document.getElementById("email").value
+            const msg = document.getElementById("msg").value
+        var tempParams = {
+        from_name: from,
+        to_name: '',
+        message: msg,
+    };
+    
+    emailjs.send('service_wzsh3ph','template_yodiedn',tempParams)
+    .then(function(res){
+        console.log("success", res.status);
+    })
+
+    clear_screen()
+}
+    </script>
+</div>
+
+</html>

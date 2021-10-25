@@ -1,0 +1,8 @@
+<html metal:use-macro='load: bmi_home.pt'>
+    
+    <div metal:fill-slot='bmi'>
+        <h1>Result: ${bmi.value}</h1>
+        <h2>Status: ${bmi.msg}</h2>
+        
+    </div>
+</html>

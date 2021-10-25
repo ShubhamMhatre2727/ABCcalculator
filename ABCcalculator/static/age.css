@@ -1,0 +1,27 @@
+.birth{
+display: grid;
+grid-template-columns: 1fr 1fr;
+}
+
+.age{
+display: flex;
+flex-flow: column;
+}
+
+.age p, .next p, .block p, .block h2, h1{
+margin: 0px 0px;
+}
+
+.row-1, .row-2{
+display: flex;
+justify-content: center;
+}
+
+.block h2{
+/* color: rgb(0, 183, 255); */
+color: red;
+}
+
+.block{
+margin: 40px;
+}

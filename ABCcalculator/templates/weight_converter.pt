@@ -1,0 +1,106 @@
+<div metal:use-macro="load: layout.pt">
+    <div class="weight_box" metal:fill-slot='content'>
+        <link href="${request.static_url('ABCcalculator:static/weight_converter.css')}" rel="stylesheet">
+
+
+        <h1> Weight Converter </h1>
+
+    <div class="btn_box">
+
+        <a href="#ans" onclick="{kg()}" class="btn0">Kilogram</a>
+
+        <a href="#ans" onclick="{po()}" style="padding-inline: 93px;" class="btn1">Pounds</a>
+        
+        <a href="#ans" onclick="{gr()}" style="padding-inline: 100px;" class="btn2">Grams</a>
+
+        <a href="#ans" onclick="{ou()}" style="padding-inline: 100px;" class="btn3">Ounce</a>
+
+    </div>
+    <div id="ans">
+
+    </div>
+    <script>
+        const kg = () => {
+            content = document.getElementById('ans')
+            content.innerHTML = `<form><p>
+                <input id="inputKilograms" type="number" placeholder="Kilograms" oninput="weightConverterKG(this.value)"
+                onchange="weightConverterKG(this.value)">
+
+                </p>
+
+                <p>Pounds: <span id="outputPounds"></span></p>
+
+                <p>Ounces: <span id="outputOunces"></span></p>
+
+                <p>Grams: <span id="outputGrams"></span></p></form>`
+        }
+
+        const ou = () => {
+            content = document.getElementById('ans')
+            content.innerHTML = `<form><p>
+                <input id="inputOunces" type="number" placeholder="Ounces" oninput="weightConverterOU(this.value)"
+                    onchange="weightConverterOU(this.value)">
+                </p>
+
+                <p>Pounds: <span id="outputPounds"></span></p>
+
+                <p>Kilograms: <span id="outputKilograms"></span></p>
+
+                <p>Grams: <span id="outputGrams"></span></p></form`
+        }
+
+        const po = () => {
+            content = document.getElementById('ans')
+            content.innerHTML = `<form><p>
+                <input id="inputPounds" type="number" placeholder="Pounds" oninput="weightConverterPO(this.value)"
+                onchange="weightConverterPO(this.value)">
+                </p>
+
+                <p>Kilograms: <span id="outputKilograms"></span></p>
+
+                <p>Ounces: <span id="outputOunces"></span></p>
+
+                <p>Grams: <span id="outputGrams"></span></p></form>`
+        }
+
+        const gr = () => {
+            content = document.getElementById('ans')
+            content.innerHTML = `<form><p>
+                <input id="inputGrams" type="number" placeholder="Grams" oninput="weightConverterGR(this.value)"
+                    onchange="weightConverterGR(this.value)">
+                </p>
+
+                <p>Pounds: <span id="outputPounds"></span></p>
+
+                <p>Ounces: <span id="outputOunces"></span></p>
+
+                <p>Kilograms: <span id="outputKilograms"></span></p></form>`
+        }
+
+        function weightConverterKG(valNum) {
+            document.getElementById("outputPounds").innerHTML = valNum * 2.2046;
+            document.getElementById("outputOunces").innerHTML = valNum * 35.274;
+            document.getElementById("outputGrams").innerHTML = valNum * 1000;
+        }
+
+        function weightConverterOU(valNum) {
+            document.getElementById("outputPounds").innerHTML = valNum * 0.0625;
+            document.getElementById("outputKilograms").innerHTML = valNum / 35.274;
+            document.getElementById("outputGrams").innerHTML = valNum / 0.035274;
+        }
+
+        function weightConverterPO(valNum) {
+            document.getElementById("outputKilograms").innerHTML = valNum / 2.2046;
+            document.getElementById("outputOunces").innerHTML = valNum * 16;
+            document.getElementById("outputGrams").innerHTML = valNum / 0.0022046;
+        }
+
+        function weightConverterGR(valNum) {
+            document.getElementById("outputPounds").innerHTML = valNum * 0.0022046;
+            document.getElementById("outputOunces").innerHTML = valNum * 0.035274;
+            document.getElementById("outputKilograms").innerHTML = valNum / 1000;
+        }
+
+        </script>
+    </div>
+</div>

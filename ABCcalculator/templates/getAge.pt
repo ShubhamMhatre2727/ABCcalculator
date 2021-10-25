@@ -1,0 +1,76 @@
+<div metal:use-macro='load: age_home.pt'>
+    
+    <div metal:fill-slot='dob'>
+        <h2>Date of Birt: ${date}</h2>
+        <h2>Current Date: ${view.current_date}</h2>
+
+        <div class="main">
+            <div class="birth">
+                <div class="age">
+                    <p style="font-size: 50px;">
+                        Age
+                    </p>
+                    <div style="display: flex; flex-flow: row; justify-content: center; align-items: baseline;">
+                        <p style="font-size: 50px; color: red;">
+                            ${dob.years}
+                        </p>
+                        <p style="font-weight: bold;">
+                            &nbsp; years
+                        </p>
+                    </div>
+                    <p>
+                        ${dob.months} month | ${dob.days} days
+                    </p>
+                </div>
+                <div class="next">
+                    <p style="font-size: 50px;">
+                        Age
+                    </p>
+                    <div style="display: flex; flex-flow: row; justify-content: center; align-items: baseline;">
+                        <p style="font-size: 50px; color: red;">
+                            ${dob.years}
+                        </p>
+                        <p style="font-weight: bold;">
+                            &nbsp; years
+                        </p>
+                    </div>
+                    <p>
+                        ${dob.months} month | ${dob.days} days
+                    </p>
+                </div>
+            </div>
+            <div class="summary">
+                <h1>Summary</h1>
+                <div class="row-1">
+                   <div class="block">
+                       <p>Years</p>
+                       <h2>${dob.years}</h2>
+                   </div>
+                   <div class="block">
+                       <p>Moths</p>
+                       <h2>${dob.birth_months}</h2>
+                    </div>
+                   <div class="block">
+                       <p>Weeks</p>
+                       <h2>${dob.birth_week}</h2>
+                   </div>
+                </div>
+                <div class="row-2">
+                   <div class="block">
+                       <p>Days</p>
+                       <h2>${dob.birth_days}</h2>
+                   </div>
+                   <div class="block">
+                       <p>Hours</p>
+                       <h2>${dob.birth_hours}</h2>
+                   </div>
+                   <div class="block">
+                       <p>Minutes</p>
+                       <h2>${dob.birth_minutes}</h2>
+                   </div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+</div>

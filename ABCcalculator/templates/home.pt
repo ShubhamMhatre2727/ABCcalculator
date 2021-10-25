@@ -1,0 +1,395 @@
+<div metal:use-macro="load: layout.pt">
+  <div class="home_box" metal:fill-slot="content">
+    <link href="${request.static_url('ABCcalculator:static/home.css')}" rel="stylesheet">
+
+    <div>
+      <main>
+        <section class="glass">
+          <div class="dashboard">
+            <div class="user">
+              <img src="../static/images/Calculator-icon.png" alt="" />
+              <h3><a href="">ConvertWorld</a></h3>
+            </div>
+            <div class="links">
+              <div class="link">
+                <img src="../static/images/table.png" alt="" />
+                <h2><a onclick="{chart()}">Charts</a></h2>
+              </div>
+              <div class="link">
+                <img src="../static/images/history.png" alt="" />
+                <h2><a onclick="{history_table()}">History</a></h2>
+              </div>
+              <div class="link">
+                <img src="../static/images/upcoming.png" alt="" />
+                <h2><a onclick="{upcoming()}">Upcoming</a></h2>
+              </div>
+              <div class="link">
+                <img src="../static/images/library.png" alt="" />
+                <h2><a onclick="{library()}">Library</a></h2>
+              </div>
+            </div>
+            <a  href="/about" class="pro">
+              <h2>Contact Us</h2>
+              <img src="../static/images/contact.png" alt="" />
+            </a>
+          </div>
+    
+          <div id="calculators" class="calculators">
+            <div class="status">
+              <h1>Featured Conversions</h1>
+              <input type="text" />
+            </div>
+    
+            <div class="cards">
+              <div class="card">
+                <img src="../static/images/normalcalculator.png" alt="" />
+                <div class="card-info">
+                  <h2>Normal Calculator</h2>
+                  <p> A device that performs
+                    arithmetic operations on numbers. The simplest calculators can do only addition, subtraction,
+                    multiplication, and division. But our calculator can solve expressions to.</p>
+                </div>
+              </div>
+    
+              <div class="card">
+                <img src="../static/images/bmi.png" alt="" />
+                <div class="card-info">
+                  <h2>BMI Calculator</h2>
+                  <p> Body Mass Index (BMI) is a person’s weight in kilograms divided by the square of height in meters.
+                    A high BMI can indicate high body fatness.
+                </div>
+              </div>
+    
+              <div class="card">
+                <img src="../static/images/age.png" alt="" />
+                <div class="card-info">
+                  <h2>Age Calculator</h2>
+                  <p>An age calculator is a platform designed for all living beings to determine their age between two
+                    dates.
+                  </p>
+                </div>
+              </div>
+    
+              <div class="card">
+                <img src="../static/images/kg.png" alt="" />
+                <div class="card-info">
+                  <h2>Weight Converter</h2>
+                  <p> Weight converter tool is the best tool for converting between different weight units.
+                    We not only include a real-time weight conversion tool, but also a weight conversion chart </p>
+                </div>
+              </div>
+    
+            </div>
+          </div>
+        </section>
+      </main>
+    
+      <script>
+        const history_table = () => {
+          content = document.getElementById('calculators')
+          data = ${data}
+          str = `<div class="status">
+              <h1>History</h1>
+              <input type="text" />
+            </div>
+            <table id="customers">
+            <tr>
+              <th>Id</th>
+              <th>Time</th>
+              <th>Statements</th>
+            </tr>
+            `;
+          for (row in data){
+            str += ' <tr> <td>'+data[row].id+'</td> <td>'+data[row].time+'</td> <td>'+data[row].statement+'</td> </tr> '
+          }
+          str += `</table>`
+
+          content.innerHTML = str;
+        }
+
+        const chart = () => {
+          content = document.getElementById('calculators')
+          content.innerHTML = `<div class="status">
+              <h1> Charts </h1>
+              <input type="text" />
+            </div>
+          <table id="customers">
+            <tr>
+              <th>Kg</th>
+              <th>Stones</th>
+              <th>Stones &amp; Pounds</th>
+              <th>Pounds</th>
+            </tr>
+    
+            <tr>
+              <td>50 kg</td>
+              <td>7.87 st</td>
+              <td>7 st, 12.2 lb</td>
+              <td>110.23</td>
+            </tr>
+            <tr>
+              <td>52 kg</td>
+              <td>8.19 st</td>
+              <td>8 st, 2.6 lb</td>
+              <td>114.64</td>
+            </tr>
+            <tr>
+              <td>54 kg</td>
+              <td>8.5 st</td>
+              <td>8 st, 7 lb</td>
+              <td>119.05</td>
+            </tr>
+            <tr>
+              <td>56 kg</td>
+              <td>8.82 st</td>
+              <td>8 st, 11.5 lb</td>
+              <td>123.46</td>
+            </tr>
+            <tr>
+              <td>58 kg</td>
+              <td>9.13 st</td>
+              <td>9 st, 1.9 lb</td>
+              <td>127.87</td>
+            </tr>
+            <tr>
+              <td>60 kg</td>
+              <td>9.45 st</td>
+              <td>9 st, 6.3 lb</td>
+              <td>132.28</td>
+            </tr>
+            <tr>
+              <td>62 kg</td>
+              <td>9.76 st</td>
+              <td>9 st, 10.7 lb</td>
+              <td>136.69</td>
+            </tr>
+            <tr>
+              <td>64 kg</td>
+              <td>10.08 st</td>
+              <td>10 st, 1.1 lb</td>
+              <td>141.1</td>
+            </tr>
+            <tr>
+              <td>66 kg</td>
+              <td>10.39 st</td>
+              <td>10 st, 5.5 lb</td>
+              <td>145.51</td>
+            </tr>
+            <tr>
+              <td>68 kg</td>
+              <td>10.71 st</td>
+              <td>10 st, 9.9 lb</td>
+              <td>149.91</td>
+            </tr>
+            <tr>
+              <td>70 kg</td>
+              <td>11.02 st</td>
+              <td>11 st, 0.3 lb</td>
+              <td>154.32</td>
+            </tr>
+            <tr>
+              <td>72 kg</td>
+              <td>11.34 st</td>
+              <td>11 st, 4.7 lb</td>
+              <td>158.73</td>
+            </tr>
+            <tr>
+              <td>74 kg</td>
+              <td>11.65 st</td>
+              <td>11 st, 9.1 lb</td>
+              <td>163.14</td>
+            </tr>
+            <tr>
+              <td>76 kg</td>
+              <td>11.97 st</td>
+              <td>11 st, 13.6 lb</td>
+              <td>167.55</td>
+            </tr>
+            <tr>
+              <td>78 kg</td>
+              <td>12.28 st</td>
+              <td>12 st, 4 lb</td>
+              <td>171.96</td>
+            </tr>
+            <tr>
+              <td>80 kg</td>
+              <td>12.6 st</td>
+              <td>12 st, 8.4 lb</td>
+              <td>176.37</td>
+            </tr>
+            <tr>
+              <td>82 kg</td>
+              <td>12.91 st</td>
+              <td>12 st, 12.8 lb</td>
+              <td>180.78</td>
+            </tr>
+            <tr>
+              <td>84 kg</td>
+              <td>13.23 st</td>
+              <td>13 st, 3.2 lb</td>
+              <td>185.19</td>
+            </tr>
+            <tr>
+              <td>86 kg</td>
+              <td>13.54 st</td>
+              <td>13 st, 7.6 lb</td>
+              <td>189.6</td>
+            </tr>
+            <tr>
+              <td>88 kg</td>
+              <td>13.86 st</td>
+              <td>13 st, 12 lb</td>
+              <td>194.01</td>
+            </tr>
+            <tr>
+              <td>90 kg</td>
+              <td>14.17 st</td>
+              <td>14 st, 2.4 lb</td>
+              <td>198.42</td>
+            </tr>
+            <tr>
+              <td>92 kg</td>
+              <td>14.49 st</td>
+              <td>14 st, 6.8 lb</td>
+              <td>202.83</td>
+            </tr>
+            <tr>
+              <td>94 kg</td>
+              <td>14.8 st</td>
+              <td>14 st, 11.2 lb</td>
+              <td>207.23</td>
+            </tr>
+            <tr>
+              <td>96 kg</td>
+              <td>15.12 st</td>
+              <td>15 st, 1.6 lb</td>
+              <td>211.64</td>
+            </tr>
+            <tr>
+              <td>98 kg</td>
+              <td>15.43 st</td>
+              <td>15 st, 6.1 lb</td>
+              <td>216.05</td>
+            </tr>
+            <tr>
+              <td>100 kg</td>
+              <td>15.75 st</td>
+              <td>15 st, 10.5 lb</td>
+              <td>220.46</td>
+            </tr>
+        </table>`
+        }
+    
+        const upcoming = () => {
+          content = document.getElementById('calculators')
+          content.innerHTML = `<div class="status">
+              <h1>Upcoming Conversions</h1>
+              <input type="text" />
+            </div>
+    
+            <div class="cards">
+              <div class="card">
+                <img src="../static/images/money.png" alt="" />
+                <div class="card-info">
+                  <h2>Currency Converter</h2>
+                  <p> A currency converter that provides for the easy conversion of currency values based on present-day exchange rates.</p>
+                </div>
+              </div>
+    
+              <div class="card">
+                <img src="../static/images/temp.png" alt="" />
+                <div class="card-info">
+                  <h2>Temprature Converter</h2>
+                  <p> A temperature converter helps in the conversion of the measurement
+                   units of the temperature recorded in a particular unit.</p> 
+                </div>
+              </div>
+    
+              <div class="card">
+                <img src="../static/images/area.png" alt="" />
+                <div class="card-info">
+                  <h2>Area Converter</h2>
+                  <p> An area calculator is an online tool that helps you convert one unit of measurement of an area into another.</p>
+                </div>
+              </div>
+    
+            </div>`
+          }
+    
+          const library = () => {
+          content = document.getElementById('calculators')
+          content.innerHTML = `<div class="status">
+              <h1>Library</h1>
+              <input type="text" />
+            </div>
+    
+            <div class="cards">
+              <div class="card">
+                <div class="card-info">
+                  <h2>Normal Calulator</h2>
+                  <p> <b>Addition</b> <br>
+                        The addition (sum function) is used by clicking on the "+" button or using the keyboard. The function results in a+b. <br>
+                      <b>Subtraction</b> <br>
+                        The subtraction (minus function) is used by clicking on the "-" button or using the keyboard. The function results in a-b.<br>
+                      <b>Multiplication</b> <br>
+                        The multiplication (multiple function) is used by clicking on the "*" button or using the keyboard. The function results in a*b.<br>   
+                      <b>Division</b><br>
+                          The division (divide function) is used by clicking on the "/" button or using the keyboard "/" key. The function results in a/b.
+                      </p>
+                </div>
+              </div>
+    
+              <div class="card">  
+                <div class="card-info">
+                  <h2>BMI Calculator</h2>
+                  <p> Body Mass Index is a simple calculation using a person’s height and weight.
+                      The formula is <br> BMI = kg/m<sup>2</sup> where kg is a person’s weight in kilograms and m<sup>2</sup>
+                      is their height in metres squared. <br>
+                      <b> BMI weight ranges : </b> <br>
+                        Less than 18.5 = Underweight <br>
+                        Between 18.5 - 24.9 = Healthy Weight <br>
+                        Between 25 - 29.9 = Overweight <br>
+                        Over 30 = Obese</p> 
+                </div>
+              </div>
+    
+              <div class="card">
+                <div class="card-info">
+                  <h2>Age Calculator</h2>
+                  <p> Age calculator is tool to calculate age from date of birth to current date.
+                      It can also be used to calculate time difference between two dates.
+                      The output format of the time difference is in terms of years, months and days.
+                      The calculation of age or time difference does not depend on the timezone of the person as the output is the difference of the time.
+                      This age calculator is created on the basis of most common age system, so that it stays relevant for most of the people.</p>
+                </div>
+              </div>
+    
+              <div class="card">
+                <div class="card-info">
+                  <h2>Weight Converter</h2>
+                  <p> Weight conversion between metric units is quite basic, and 
+                    you can most like do it without any table - e.g., 1 kilogram = 1000 grams or 1 ton equals 1000 kilograms. 
+                    Things get a bit more complicated when using the imperial system. Here, for example, 1 stone = 14 pounds 
+                    which equals 224 ounces. Conversion between systems is even more complicated! This conversion calculator 
+                    then becomes very helpful, as, e.g., 1 kilogram = 35.274 ounces, 0.15757 stones, and 2.2046 pounds.<br>
+    
+                    <b>*Pound :</b><br>
+                    The pound is probably the most used imperial unit for measuring weight, especially in countries 
+                    that have adopted the International System such as the US, UK, and Canada. The pound has its origin 
+                    in the Roman unit of weight called libra. Hence, the abbreviation is lb. From there, it evolved into the 
+                    British pound (with various definitions and values), eventually becoming what we now know as the pound.<br>
+                    
+                    <b>*Ounce :</b><br>
+                    The definition of the ounce, however, is much easier to do within the Imperial System, since the ounce is defined as 1/16 lb. 
+                    From there, you can convert from lbs to kg to obtain the SI value of an ounce. It is possible to do it the other
+                     way around to get ounces from kilograms. You need to convert from kg to lbs and then to ounces. The equivalences
+                      are as follows: 1 lbs = 16 oz = 0.45359237 kg and 1 oz = 0.0625 lbs = 0.0283495 kg.</p>
+                </div>
+              </div>
+    
+            </div>`
+          }
+      </script>
+    </div>
+  </div>
+</div>
